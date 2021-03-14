@@ -50,6 +50,7 @@ Partial Class MainForm
         '
         'TxtNumStudents
         '
+        Me.TxtNumStudents.BackColor = System.Drawing.SystemColors.Info
         Me.TxtNumStudents.Location = New System.Drawing.Point(216, 53)
         Me.TxtNumStudents.Name = "TxtNumStudents"
         Me.TxtNumStudents.ReadOnly = True
@@ -67,21 +68,33 @@ Partial Class MainForm
         '
         'BtnDisplay
         '
-        Me.BtnDisplay.Location = New System.Drawing.Point(182, 120)
+        Me.BtnDisplay.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.BtnDisplay.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.BtnDisplay.FlatAppearance.BorderSize = 2
+        Me.BtnDisplay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White
+        Me.BtnDisplay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleGreen
+        Me.BtnDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnDisplay.Location = New System.Drawing.Point(196, 98)
         Me.BtnDisplay.Name = "BtnDisplay"
-        Me.BtnDisplay.Size = New System.Drawing.Size(75, 23)
+        Me.BtnDisplay.Size = New System.Drawing.Size(75, 34)
         Me.BtnDisplay.TabIndex = 3
         Me.BtnDisplay.Text = "&Display"
-        Me.BtnDisplay.UseVisualStyleBackColor = True
+        Me.BtnDisplay.UseVisualStyleBackColor = False
         '
         'BtnExit
         '
-        Me.BtnExit.Location = New System.Drawing.Point(275, 120)
+        Me.BtnExit.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.BtnExit.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.BtnExit.FlatAppearance.BorderSize = 2
+        Me.BtnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White
+        Me.BtnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleGreen
+        Me.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnExit.Location = New System.Drawing.Point(289, 98)
         Me.BtnExit.Name = "BtnExit"
-        Me.BtnExit.Size = New System.Drawing.Size(75, 23)
+        Me.BtnExit.Size = New System.Drawing.Size(75, 34)
         Me.BtnExit.TabIndex = 4
         Me.BtnExit.Text = "E&xit"
-        Me.BtnExit.UseVisualStyleBackColor = True
+        Me.BtnExit.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -162,6 +175,7 @@ Partial Class MainForm
         Me.Controls.Add(Me.TxtNumStudents)
         Me.Controls.Add(Me.LstOfGrades)
         Me.Name = "MainForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Potter Jr High"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

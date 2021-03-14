@@ -74,6 +74,7 @@ Public Class MainForm
             End If
         Next
         TxtNumStudents.Text = Student.ToString
+        HideCaret(TxtNumStudents.Handle)
     End Sub
     Private Sub LstOfGrades_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstOfGrades.SelectedIndexChanged
         TxtNumStudents.Text = ""
