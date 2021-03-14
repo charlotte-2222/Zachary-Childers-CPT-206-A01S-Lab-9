@@ -22,7 +22,7 @@ Partial Class MainForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.LstGrades = New System.Windows.Forms.ListBox()
+        Me.LstOfGrades = New System.Windows.Forms.ListBox()
         Me.TxtNumStudents = New System.Windows.Forms.TextBox()
         Me.LstNames = New System.Windows.Forms.ListBox()
         Me.BtnDisplay = New System.Windows.Forms.Button()
@@ -32,13 +32,13 @@ Partial Class MainForm
         Me.Label3 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'LstGrades
+        'LstOfGrades
         '
-        Me.LstGrades.FormattingEnabled = True
-        Me.LstGrades.Location = New System.Drawing.Point(25, 88)
-        Me.LstGrades.Name = "LstGrades"
-        Me.LstGrades.Size = New System.Drawing.Size(36, 108)
-        Me.LstGrades.TabIndex = 0
+        Me.LstOfGrades.FormattingEnabled = True
+        Me.LstOfGrades.Location = New System.Drawing.Point(25, 88)
+        Me.LstOfGrades.Name = "LstOfGrades"
+        Me.LstOfGrades.Size = New System.Drawing.Size(36, 108)
+        Me.LstOfGrades.TabIndex = 0
         '
         'TxtNumStudents
         '
@@ -112,7 +112,7 @@ Partial Class MainForm
         Me.Controls.Add(Me.BtnDisplay)
         Me.Controls.Add(Me.LstNames)
         Me.Controls.Add(Me.TxtNumStudents)
-        Me.Controls.Add(Me.LstGrades)
+        Me.Controls.Add(Me.LstOfGrades)
         Me.Name = "MainForm"
         Me.Text = "Potter Jr High"
         Me.ResumeLayout(False)
@@ -120,7 +120,7 @@ Partial Class MainForm
 
     End Sub
 
-    Friend WithEvents LstGrades As ListBox
+    Friend WithEvents LstOfGrades As ListBox
     Friend WithEvents TxtNumStudents As TextBox
     Friend WithEvents LstNames As ListBox
     Friend WithEvents BtnDisplay As Button

@@ -5,29 +5,33 @@ Option Strict On
 Option Explicit On
 Option Infer Off
 Public Class MainForm
-    Dim strStudNameGrade(14, 1) As String
-    Dim intStud As Integer
+    Dim strNamesAndGrades(14, 1) As String
+
+    Dim intStudent As Integer
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' LstGrades.SelectedIndex = 0
+        ' LstOfGrades.SelectedIndex = 0
 
-        Dim FrmDotText As IO.StreamReader
-        Dim OpnDotText As OpenFileDialog = New OpenFileDialog
+        Dim inFile As IO.StreamReader
 
-        If IO.File.Exists("NamesAndGrades.txt") Then
-            FrmDotText = IO.File.OpenText("NamesAndGrads.txt")
+        Dim dlgFile As OpenFileDialog = New OpenFileDialog
 
-            Do Until FrmDotText.Peek = -1
-                strStudNameGrade(intStud, 0) = FrmDotText.ReadLine
-                strStudNameGrade(intStud, 1) = FrmDotText.ReadLine
+        If IO.File.Exists("Zachary-Childers-CPT-206-A01S-Lab-9\Solution Items\NamesAndGrades.txt") Then
+            inFile = IO.File.OpenText("Zachary-Childers-CPT-206-A01S-Lab-9\Solution Items\NamesAndGrades.txt")
+            Do Until inFile.Peek = -1
+                strNamesAndGrades(intStudent, 0) = inFile.ReadLine
+                strNamesAndGrades(intStudent, 1) = inFile.ReadLine
+                intStudent += 1
             Loop
+
+            'inFile.Close()
         Else
-            MessageBox.Show("Unable to parse .txt file, please be sure that you have selected the correct file",
-                            "Exception: Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            If OpnDotText.ShowDialog() = DialogResult.OK Then
-                FrmDotText = IO.File.OpenText(OpnDotText.FileName)
-                Do Until FrmDotText.Peek = -1
-                    strStudNameGrade(intStud, 0) = FrmDotText.ReadLine
-                    strStudNameGrade(intStud, 1) = FrmDotText.ReadLine
+            MessageBox.Show("Gradebook not available for processing. Press OK to selet a new gradebook file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            If dlgFile.ShowDialog() = DialogResult.OK Then
+                inFile = IO.File.OpenText(dlgFile.FileName)
+                Do Until inFile.Peek = -1
+                    strNamesAndGrades(intStudent, 0) = inFile.ReadLine
+                    strNamesAndGrades(intStudent, 1) = inFile.ReadLine
+                    intStudent += 1
                 Loop
             Else
                 Me.Close()
@@ -37,19 +41,22 @@ Public Class MainForm
 
     Private Sub BtnDisplay_Click(sender As Object, e As EventArgs) Handles BtnDisplay.Click
         LstNames.Items.Clear()
-        LstNames.Focus()
-        Dim Students As Integer
-        For indx As Integer = 0 To Students - 1
-            If strStudNameGrade(indx, 1) = LstGrades.SelectedIndex.ToString Then
-                LstNames.Items.Add(strStudNameGrade(indx, 0))
-                Students += 1
+        Dim intStudentCount As Integer = 0
+        For intIndex As Integer = 0 To intStudent - 1
+            If strNamesAndGrades(intIndex, 1) = LstOfGrades.SelectedItem.ToString Then
+                LstNames.Items.Add(strNamesAndGrades(intIndex, 0))
+                intStudentCount += 1
             End If
         Next
-        TxtNumStudents.Text = intStud.ToString
+        TxtNumStudents.Text = intStudentCount.ToString
     End Sub
 
     Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
         Me.Close()
+    End Sub
+
+    Private Sub LstOfGrades_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstOfGrades.SelectedIndexChanged
+        LstOfGrades.SelectedIndex = 0
     End Sub
 End Class
 ' #TODO: 
