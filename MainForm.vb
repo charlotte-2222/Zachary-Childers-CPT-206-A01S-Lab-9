@@ -1,4 +1,8 @@
-﻿Public Class MainForm
+﻿'CPT-206-A01S-Lab-9
+'Zachary Childers
+'3/13/21
+
+Public Class MainForm
     Dim strStudNameGrade(14, 1) As String
     Dim intStud As Integer
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -39,6 +43,14 @@
                 Students += 1
             End If
         Next
-
+        'Stopped here
     End Sub
 End Class
+' #TODO: 
+' - Splash screen, will need timers on splash + on MainForm itself - seconds tick
+'  - Update txtbox
+' - exit button code, message box
+' - format, coloration - work on theme of form and buttons
+' - tool tips
+' - tabs, shortcuts, center form 
+' - double buffer
