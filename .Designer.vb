@@ -39,6 +39,8 @@ Partial Class MainForm
         Me.LstOfGrades.Name = "LstOfGrades"
         Me.LstOfGrades.Size = New System.Drawing.Size(36, 108)
         Me.LstOfGrades.TabIndex = 0
+        Me.LstOfGrades.Items.AddRange(New Object() {"A", "B", "C", "D", "F"})
+
         '
         'TxtNumStudents
         '
@@ -52,6 +54,7 @@ Partial Class MainForm
         Me.LstNames.FormattingEnabled = True
         Me.LstNames.Location = New System.Drawing.Point(102, 88)
         Me.LstNames.Name = "LstNames"
+        Me.LstNames.SelectionMode = System.Windows.Forms.SelectionMode.None
         Me.LstNames.Size = New System.Drawing.Size(112, 108)
         Me.LstNames.TabIndex = 2
         '
@@ -118,6 +121,10 @@ Partial Class MainForm
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
+    End Sub
+
+    Protected Overrides Sub Finalize()
+        MyBase.Finalize()
     End Sub
 
     Friend WithEvents LstOfGrades As ListBox
