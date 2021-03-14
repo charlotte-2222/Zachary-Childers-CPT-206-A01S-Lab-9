@@ -1,12 +1,14 @@
 ﻿'CPT-206-A01S-Lab-9
 'Zachary Childers
 '3/13/21
-
+Option Strict On
+Option Explicit On
+Option Infer Off
 Public Class MainForm
     Dim strStudNameGrade(14, 1) As String
     Dim intStud As Integer
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LstGrades.SelectedIndex = 0
+        ' LstGrades.SelectedIndex = 0
 
         Dim FrmDotText As IO.StreamReader
         Dim OpnDotText As OpenFileDialog = New OpenFileDialog
@@ -43,7 +45,11 @@ Public Class MainForm
                 Students += 1
             End If
         Next
-        'Stopped here
+        TxtNumStudents.Text = intStud.ToString
+    End Sub
+
+    Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
+        Me.Close()
     End Sub
 End Class
 ' #TODO: 
